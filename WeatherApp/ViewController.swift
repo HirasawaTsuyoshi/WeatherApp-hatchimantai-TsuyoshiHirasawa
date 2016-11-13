@@ -65,37 +65,37 @@ class ViewController: UIViewController {
             if let forecasts = json["forecasts"].array {
                 
                 // 今日の天気
-                let todayWeather = forecasts[0]
+                var dayTitle = forecasts[0]
                 
-                self.todayLabel.text = todayWeather["dateLabel"].stringValue
+                self.todayLabel.text = dayTitle["dateLabel"].stringValue
                 
-                if let imgUrl = todayWeather["image"]["url"].string {
+                if let imgUrl = dayTitle["image"]["url"].string {
                     self.todayImage.sd_setImage(with: URL(string: imgUrl))
                 }
-                self.todayWeatherLabel.text = todayWeather["telop"].stringValue
-                self.todayTemperatureLabel.text = self.generateTemperatureText(todayWeather["temperature"])
+                self.todayWeatherLabel.text = dayTitle["telop"].stringValue
+                self.todayTemperatureLabel.text = self.generateTemperatureText(dayTitle["temperature"])
 
                 // 明日の天気
-                let tomorrowWeather = forecasts[1]
+                dayTitle = forecasts[1]
                 
-                self.tomorrowLabel.text = tomorrowWeather["dateLabel"].stringValue
-                if let imgUrl = tomorrowWeather["image"]["url"].string {
+                self.tomorrowLabel.text = dayTitle["dateLabel"].stringValue
+                if let imgUrl = dayTitle["image"]["url"].string {
                     self.tomorrowImage.sd_setImage(with: URL(string: imgUrl))
                 }
-                self.tomorrowWeatherLabel.text = tomorrowWeather["telop"].stringValue
-                self.tomorrowTemperatureLabel.text = self.generateTemperatureText(tomorrowWeather["temperature"])
+                self.tomorrowWeatherLabel.text = dayTitle["telop"].stringValue
+                self.tomorrowTemperatureLabel.text = self.generateTemperatureText(dayTitle["temperature"])
                 
                 // 明後日の天気
                 // 気象情報の更新が入るまで明後日の天気情報が存在しない場合があるので要素数をチェックします
                 if forecasts.count >= 3 {
-                    let afterTomorrowWeather = forecasts[2]
+                    let dayTitle = forecasts[2]
                     
-                    self.afterTomorrowLabel.text = afterTomorrowWeather["dateLabel"].stringValue
-                    if let imgUrl = afterTomorrowWeather["image"]["url"].string {
+                    self.afterTomorrowLabel.text = dayTitle["dateLabel"].stringValue
+                    if let imgUrl = dayTitle["image"]["url"].string {
                         self.afterTomorrowImage.sd_setImage(with: URL(string: imgUrl))
                     }
-                    self.afterTomorrowWeatherLabel.text = afterTomorrowWeather["telop"].stringValue
-                    self.afterTomorrowTemperatureLabel.text = self.generateTemperatureText(afterTomorrowWeather["temperature"])
+                    self.afterTomorrowWeatherLabel.text = dayTitle["telop"].stringValue
+                    self.afterTomorrowTemperatureLabel.text = self.generateTemperatureText(dayTitle["temperature"])
                 }
             
             }
