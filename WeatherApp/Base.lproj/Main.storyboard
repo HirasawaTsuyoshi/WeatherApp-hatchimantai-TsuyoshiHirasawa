@@ -175,18 +175,18 @@
                     </view>
                     <connections>
                         <outlet property="afterTomorrowImage" destination="u2T-GJ-u3p" id="FL4-83-EOf"/>
-                        <outlet property="afterTomorrowLabel" destination="Gsw-5L-9Kr" id="ijT-5C-Dx0"/>
                         <outlet property="afterTomorrowTemperatureLabel" destination="lQd-qT-MTX" id="Xbh-GD-XPE"/>
                         <outlet property="afterTomorrowWeatherLabel" destination="guE-7r-3ve" id="0ww-th-5DH"/>
                         <outlet property="titleLabel" destination="Phl-qk-njc" id="z33-6u-ytz"/>
                         <outlet property="todayImage" destination="msL-Vb-wk7" id="Du8-IR-Nau"/>
-                        <outlet property="todayLabel" destination="yHs-my-yai" id="tXy-nJ-OM4"/>
                         <outlet property="todayTemperatureLabel" destination="L1r-3E-alm" id="rI1-d5-hNR"/>
                         <outlet property="todayWeatherLabel" destination="hIW-Mo-OzP" id="rvi-GY-SAi"/>
                         <outlet property="tomorrowImage" destination="3jS-Ns-wOX" id="d7X-WA-SkD"/>
-                        <outlet property="tomorrowLabel" destination="yT1-K2-7wb" id="JfV-RZ-58s"/>
                         <outlet property="tomorrowTemperatureLabel" destination="gZf-sk-viB" id="XaF-P1-pSP"/>
                         <outlet property="tomorrowWeatherLabel" destination="TsH-1d-sMu" id="QAP-AR-5je"/>
+                        <outletCollection property="dayTitles" destination="yHs-my-yai" collectionClass="NSMutableArray" id="6k4-VN-T3i"/>
+                        <outletCollection property="dayTitles" destination="yT1-K2-7wb" collectionClass="NSMutableArray" id="4UT-7M-z70"/>
+                        <outletCollection property="dayTitles" destination="Gsw-5L-9Kr" collectionClass="NSMutableArray" id="FYO-qI-D6X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

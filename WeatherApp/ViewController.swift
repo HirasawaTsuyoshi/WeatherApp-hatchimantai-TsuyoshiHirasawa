@@ -15,19 +15,21 @@ import SDWebImage
 
 class ViewController: UIViewController {
     
+    @IBOutlet var dayTitles: [UILabel]!
+    
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var todayLabel: UILabel!
+//    @IBOutlet weak var todayLabel: UILabel!
     @IBOutlet weak var todayImage: UIImageView!
     @IBOutlet weak var todayWeatherLabel: UILabel!
     @IBOutlet weak var todayTemperatureLabel: UILabel!
     
     
-    @IBOutlet weak var tomorrowLabel: UILabel!
+//    @IBOutlet weak var tomorrowLabel: UILabel!
     @IBOutlet weak var tomorrowImage: UIImageView!
     @IBOutlet weak var tomorrowWeatherLabel: UILabel!
     @IBOutlet weak var tomorrowTemperatureLabel: UILabel!
     
-    @IBOutlet weak var afterTomorrowLabel: UILabel!
+//    @IBOutlet weak var afterTomorrowLabel: UILabel!
     @IBOutlet weak var afterTomorrowImage: UIImageView!
     @IBOutlet weak var afterTomorrowWeatherLabel: UILabel!
     @IBOutlet weak var afterTomorrowTemperatureLabel: UILabel!
@@ -67,7 +69,7 @@ class ViewController: UIViewController {
                 // 今日の天気
                 var dayTitle = forecasts[0]
                 
-                self.todayLabel.text = dayTitle["dateLabel"].stringValue
+                self.dayTitles[0].text = dayTitle["dateLabel"].stringValue
                 
                 if let imgUrl = dayTitle["image"]["url"].string {
                     self.todayImage.sd_setImage(with: URL(string: imgUrl))
@@ -78,7 +80,7 @@ class ViewController: UIViewController {
                 // 明日の天気
                 dayTitle = forecasts[1]
                 
-                self.tomorrowLabel.text = dayTitle["dateLabel"].stringValue
+                self.dayTitles[1].text = dayTitle["dateLabel"].stringValue
                 if let imgUrl = dayTitle["image"]["url"].string {
                     self.tomorrowImage.sd_setImage(with: URL(string: imgUrl))
                 }
@@ -90,7 +92,7 @@ class ViewController: UIViewController {
                 if forecasts.count >= 3 {
                     let dayTitle = forecasts[2]
                     
-                    self.afterTomorrowLabel.text = dayTitle["dateLabel"].stringValue
+                    self.dayTitles[2].text = dayTitle["dateLabel"].stringValue
                     if let imgUrl = dayTitle["image"]["url"].string {
                         self.afterTomorrowImage.sd_setImage(with: URL(string: imgUrl))
                     }
